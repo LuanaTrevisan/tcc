@@ -21,7 +21,7 @@ public class Login {
     @Id
     @GeneratedValue
     private UUID id;
-    private String cpf;
+    private String usuario;
     private String senha;
 
 }
