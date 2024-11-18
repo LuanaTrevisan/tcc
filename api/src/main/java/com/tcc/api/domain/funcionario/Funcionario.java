@@ -25,7 +25,7 @@ public class Funcionario {
 
     private UUID id;
     private String nome;
-    private long cpf;
+    private String cpf;
     private String cargo;
     private Date dataAdmissao;
     private boolean status;
