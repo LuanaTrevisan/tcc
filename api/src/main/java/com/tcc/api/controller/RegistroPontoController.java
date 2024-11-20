@@ -1,13 +1,15 @@
 package com.tcc.api.controller;
 
-import com.tcc.api.domain.funcionario.RegistroPonto;
-import com.tcc.api.domain.funcionario.RegistroPontoResquestDTO;
+import com.tcc.api.domain.registroPonto.RegistroPonto;
+import com.tcc.api.domain.registroPonto.RegistroPontoResponseDTO;
+import com.tcc.api.domain.registroPonto.RegistroPontoRequestDTO;
 import com.tcc.api.repositories.RegistroPontoRepository;
 import com.tcc.api.service.RegistroPontoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.UUID;
 
 @RestController
@@ -21,8 +23,12 @@ public class RegistroPontoController {
     private RegistroPontoService registroPontoService;
 
     @PostMapping("/funcionario/{funcionarioId}")
-    public ResponseEntity<RegistroPonto> addRegistroPontoToFuncionario(@PathVariable UUID funcionarioId, @RequestBody RegistroPontoResquestDTO data){
+    public ResponseEntity<RegistroPonto> addRegistroPontoToFuncionario(@PathVariable UUID funcionarioId, @RequestBody RegistroPontoRequestDTO data){
             RegistroPonto registroPonto = this.registroPontoService.addRegistroPontoToFuncionario(funcionarioId, data);
             return ResponseEntity.ok(registroPonto);
+    }
+
+    public ResponseEntity<List<RegistroPontoResponseDTO>> getLogin(){
+
     }
 }

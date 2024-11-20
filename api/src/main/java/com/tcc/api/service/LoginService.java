@@ -1,7 +1,7 @@
 package com.tcc.api.service;
 
-import com.tcc.api.domain.funcionario.Login;
-import com.tcc.api.domain.funcionario.LoginRequestDTO;
+import com.tcc.api.domain.login.Login;
+import com.tcc.api.domain.login.LoginRequestDTO;
 import org.springframework.stereotype.Service;
 
 @Service

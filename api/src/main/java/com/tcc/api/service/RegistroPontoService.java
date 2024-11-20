@@ -1,6 +1,8 @@
 package com.tcc.api.service;
 
 import com.tcc.api.domain.funcionario.*;
+import com.tcc.api.domain.registroPonto.RegistroPonto;
+import com.tcc.api.domain.registroPonto.RegistroPontoRequestDTO;
 import com.tcc.api.repositories.FuncionarioRepository;
 import com.tcc.api.repositories.RegistroPontoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +20,7 @@ public class RegistroPontoService {
         @Autowired
         private FuncionarioRepository funcionarioRepository ;
 
-        public RegistroPonto addRegistroPontoToFuncionario(UUID funcionarioId, RegistroPontoResquestDTO
+        public RegistroPonto addRegistroPontoToFuncionario(UUID funcionarioId, RegistroPontoRequestDTO
         RegistroPontoData){
             Funcionario funcionario = funcionarioRepository.findById(funcionarioId)
                     .orElseThrow(() -> new IllegalArgumentException("Funcionário não encontrado"));

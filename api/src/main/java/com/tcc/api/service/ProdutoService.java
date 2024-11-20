@@ -1,7 +1,7 @@
 package com.tcc.api.service;
 
-import com.tcc.api.domain.estoque.Produto;
-import com.tcc.api.domain.estoque.ProdutoRequestDTO;
+import com.tcc.api.domain.produto.Produto;
+import com.tcc.api.domain.produto.ProdutoRequestDTO;
 import org.springframework.stereotype.Service;
 
 @Service

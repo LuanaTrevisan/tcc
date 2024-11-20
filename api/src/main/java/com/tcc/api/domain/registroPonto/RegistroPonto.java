@@ -1,5 +1,6 @@
-package com.tcc.api.domain.funcionario;
+package com.tcc.api.domain.registroPonto;
 
+import com.tcc.api.domain.funcionario.Funcionario;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

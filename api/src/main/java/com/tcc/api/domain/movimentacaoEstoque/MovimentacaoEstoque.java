@@ -1,5 +1,6 @@
-package com.tcc.api.domain.estoque;
+package com.tcc.api.domain.movimentacaoEstoque;
 
+import com.tcc.api.domain.produto.Produto;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

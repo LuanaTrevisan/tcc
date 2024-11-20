@@ -1,4 +1,4 @@
-package com.tcc.api.domain.funcionario;
+package com.tcc.api.domain.produto;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -10,18 +10,21 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import java.util.UUID;
 
-@Table(name = "login")
 @Entity
+@Table(name = "produto")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 
-public class Login {
+public class Produto {
+
     @Id
     @GeneratedValue
     private UUID id;
-    private String usuario;
-    private String senha;
+    private String nome;
+    private String descricao;
+    private Integer quantidade;
+    private float precoUnitario;
 
 }

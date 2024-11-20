@@ -1,6 +1,6 @@
 package com.tcc.api.repositories;
 
-import com.tcc.api.domain.estoque.Produto;
+import com.tcc.api.domain.produto.Produto;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.UUID;

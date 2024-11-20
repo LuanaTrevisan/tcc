@@ -1,8 +1,8 @@
 package com.tcc.api.service;
 
-import com.tcc.api.domain.estoque.MovimentacaoEstoque;
-import com.tcc.api.domain.estoque.MovimentacaoEstoqueRequestDTO;
-import com.tcc.api.domain.estoque.Produto;
+import com.tcc.api.domain.movimentacaoEstoque.MovimentacaoEstoque;
+import com.tcc.api.domain.movimentacaoEstoque.MovimentacaoEstoqueRequestDTO;
+import com.tcc.api.domain.produto.Produto;
 import com.tcc.api.repositories.MovimentacaoEstoqueRepository;
 import com.tcc.api.repositories.ProdutoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
