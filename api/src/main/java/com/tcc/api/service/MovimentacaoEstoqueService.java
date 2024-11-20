@@ -3,22 +3,34 @@ package com.tcc.api.service;
 import com.tcc.api.domain.estoque.MovimentacaoEstoque;
 import com.tcc.api.domain.estoque.MovimentacaoEstoqueRequestDTO;
 import com.tcc.api.domain.estoque.Produto;
+import com.tcc.api.repositories.MovimentacaoEstoqueRepository;
+import com.tcc.api.repositories.ProdutoRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
+import java.util.UUID;
 
 @Service
 public class MovimentacaoEstoqueService {
 
-    public MovimentacaoEstoque createMovimentacaoEstoque(MovimentacaoEstoqueRequestDTO data){
+    @Autowired
+    private MovimentacaoEstoqueRepository movimentacaoEstoqueRepository;
 
-        MovimentacaoEstoque newMovimentacaoEstoque = new MovimentacaoEstoque();
-        newMovimentacaoEstoque.setProduto(new  Produto());
-        newMovimentacaoEstoque.setTipoMovimentacao(data.tipoMovimentacao());
-        newMovimentacaoEstoque.setQuantidade(data.quantidade());
-        newMovimentacaoEstoque.setDataMovimentacao(new Date(data.dataMovimentacao()));
-        newMovimentacaoEstoque.setObservacao(data.observacao());
+    @Autowired
+    private ProdutoRepository produtoRepository;
 
-        return newMovimentacaoEstoque;
+    public MovimentacaoEstoque addMovimentacaoEstoqueToProduto(UUID produtoId, MovimentacaoEstoqueRequestDTO MovimentacaoEstoqueData){
+        Produto produto = produtoRepository.findById(produtoId)
+                .orElseThrow(() -> new IllegalArgumentException("Produto não encontrado"));
+
+        MovimentacaoEstoque movimentacaoEstoque = new MovimentacaoEstoque();
+        movimentacaoEstoque.setProduto(new  Produto());
+        movimentacaoEstoque.setTipoMovimentacao(MovimentacaoEstoqueData.tipoMovimentacao());
+        movimentacaoEstoque.setQuantidade(MovimentacaoEstoqueData.quantidade());
+        movimentacaoEstoque.setDataMovimentacao(new Date(MovimentacaoEstoqueData.dataMovimentacao()));
+        movimentacaoEstoque.setObservacao(MovimentacaoEstoqueData.observacao());
+
+        return movimentacaoEstoqueRepository.save(movimentacaoEstoque);
     }
 }
