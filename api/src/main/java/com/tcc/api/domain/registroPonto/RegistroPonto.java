@@ -28,7 +28,7 @@ public class RegistroPonto {
     private Date data;
     private LocalTime horaEntrada;
     private LocalTime horaSaida;
-    private float horasTrabalhadas;
+    private LocalTime horasTrabalhadas;
     private String  observacao;
 
 }

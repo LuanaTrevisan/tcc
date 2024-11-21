@@ -28,7 +28,9 @@ public class RegistroPontoController {
             return ResponseEntity.ok(registroPonto);
     }
 
-    public ResponseEntity<List<RegistroPontoResponseDTO>> getLogin(){
-
+    @GetMapping
+    public ResponseEntity<List<RegistroPontoResponseDTO>> getRegistroPonto(@RequestParam(defaultValue = "0") int page, @RequestParam(defaultValue = "10") int size){
+        List<RegistroPontoResponseDTO> allRegistroPonto = this.registroPontoService.getRegistroPonto(page,size);
+        return ResponseEntity.ok(allRegistroPonto);
     }
 }

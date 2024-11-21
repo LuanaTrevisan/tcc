@@ -24,7 +24,9 @@ public class MovimentacaoEstoqueController {
         return ResponseEntity.ok(movimentacaoEstoque);
     }
 
-    public ResponseEntity<List<MovimentacaoEstoqueResponseDTO>> getLogin(){
-
+    @GetMapping
+    public ResponseEntity<List<MovimentacaoEstoqueResponseDTO>> getMovimentacaoEstoque(@RequestParam(defaultValue = "0") int page, @RequestParam(defaultValue = "10") int size){
+        List<MovimentacaoEstoqueResponseDTO> allMovimentacaoEstoque = this.movimentacaoEstoqueService.getMovimentacaoEstoque(page,size);
+        return ResponseEntity.ok(allMovimentacaoEstoque);
     }
 }

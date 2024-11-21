@@ -3,11 +3,16 @@ package com.tcc.api.service;
 import com.tcc.api.domain.funcionario.*;
 import com.tcc.api.domain.registroPonto.RegistroPonto;
 import com.tcc.api.domain.registroPonto.RegistroPontoRequestDTO;
+import com.tcc.api.domain.registroPonto.RegistroPontoResponseDTO;
 import com.tcc.api.repositories.FuncionarioRepository;
 import com.tcc.api.repositories.RegistroPontoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Date;
 import java.util.UUID;
 
@@ -32,6 +37,14 @@ public class RegistroPontoService {
             registroPonto.setHoraSaida(RegistroPontoData.horaSaida());
             registroPonto.setObservacao(RegistroPontoData.observacao());
 
-            return registroPontoRepository.save(registroPonto);
+            registroPontoRepository.save(registroPonto);
+
+            return registroPonto;
+    }
+    public List<RegistroPontoResponseDTO> getRegistroPonto(int page, int size){
+        Pageable pageable = PageRequest.of(page,size);
+        Page<RegistroPonto> registroPontoPage = this.registroPontoRepository.findAll(pageable);
+        return registroPontoPage.map(registroPonto -> new RegistroPontoResponseDTO(registroPonto.getId(), registroPonto.getFuncionario(), registroPonto.getData(), registroPonto.getHoraEntrada(), registroPonto.getHoraSaida(), registroPonto.getHorasTrabalhadas(), registroPonto.getObservacao()))
+                .stream().toList();
     }
 }
