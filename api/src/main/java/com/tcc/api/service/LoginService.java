@@ -32,7 +32,7 @@ public class LoginService {
     public List<LoginResponseDTO> getLogin(int page, int size){
         Pageable pageable = PageRequest.of(page,size);
         Page<Login> loginPage = this.loginRepository.findAll(pageable);
-        return loginPage.map(login -> new LoginResponseDTO(login.getId(), login.getUsuario(), login.getSenha()))
+        return loginPage.map(login -> new LoginResponseDTO(login.getUsuario(), login.getSenha()))
                 .stream().toList();
     }
 }

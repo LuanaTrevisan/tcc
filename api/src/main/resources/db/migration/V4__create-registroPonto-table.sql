@@ -1,10 +1,10 @@
-CREATE TABLE registroPonto (
-    id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
-    funcionarioId UUID,
+CREATE TABLE registro_ponto (
+    id SERIAL PRIMARY KEY,
+    funcionarioId INTEGER NOT NULL,
     FOREIGN KEY (funcionarioId) REFERENCES funcionario(id) ON DELETE CASCADE,
-    data TIMESTAMP NOT NULL,
+    data DATE NOT NULL,
     horaEntrada TIME NOT NULL,
     horaSaida TIME NOT NULL,
-    horasTrabalhadas NUMERIC(5,2) NOT NULL,
+    horasTrabalhadas TIME NOT NULL,
     observacao TEXT NOT NULL
 );

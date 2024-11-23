@@ -25,7 +25,7 @@ public class RegistroPontoService {
         @Autowired
         private FuncionarioRepository funcionarioRepository ;
 
-        public RegistroPonto addRegistroPontoToFuncionario(UUID funcionarioId, RegistroPontoRequestDTO
+        public RegistroPonto addRegistroPontoToFuncionario(Integer funcionarioId, RegistroPontoRequestDTO
         RegistroPontoData){
             Funcionario funcionario = funcionarioRepository.findById(funcionarioId)
                     .orElseThrow(() -> new IllegalArgumentException("Funcionário não encontrado"));
@@ -35,6 +35,7 @@ public class RegistroPontoService {
             registroPonto.setData(new Date(RegistroPontoData.data()));
             registroPonto.setHoraEntrada(RegistroPontoData.horaEntrada());
             registroPonto.setHoraSaida(RegistroPontoData.horaSaida());
+            registroPonto.setHoraSaida(RegistroPontoData.horasTrabalhadas());
             registroPonto.setObservacao(RegistroPontoData.observacao());
 
             registroPontoRepository.save(registroPonto);

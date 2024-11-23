@@ -12,14 +12,14 @@ import java.util.List;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("/api/movimentacaoEstoque")
+@RequestMapping("/api/movimentacao_estoque")
 public class MovimentacaoEstoqueController {
 
     @Autowired
     private MovimentacaoEstoqueService movimentacaoEstoqueService;
 
     @PostMapping("/produto/{produtoId}")
-    public ResponseEntity<MovimentacaoEstoque> addMovimentacaoEstoqueToProduto(@PathVariable UUID produtoId, @RequestBody MovimentacaoEstoqueRequestDTO data){
+    public ResponseEntity<MovimentacaoEstoque> addMovimentacaoEstoqueToProduto(@PathVariable Integer produtoId, @RequestBody MovimentacaoEstoqueRequestDTO data){
         MovimentacaoEstoque movimentacaoEstoque = this.movimentacaoEstoqueService.addMovimentacaoEstoqueToProduto(produtoId, data);
         return ResponseEntity.ok(movimentacaoEstoque);
     }

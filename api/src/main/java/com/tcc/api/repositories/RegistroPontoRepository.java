@@ -7,6 +7,6 @@ import org.springframework.stereotype.Repository;
 import java.util.UUID;
 
 @Repository
-public interface RegistroPontoRepository extends JpaRepository<RegistroPonto, UUID> {
+public interface RegistroPontoRepository extends JpaRepository<RegistroPonto, Integer> {
 
 }

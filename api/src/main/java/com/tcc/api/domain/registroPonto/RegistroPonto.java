@@ -10,7 +10,7 @@ import java.time.LocalTime;
 import java.util.Date;
 import java.util.UUID;
 
-@Table(name = "registroPonto")
+@Table(name = "registro_ponto")
 @Entity
 @Getter
 @Setter
@@ -20,15 +20,28 @@ import java.util.UUID;
 public class RegistroPonto {
 
     @Id
-    @GeneratedValue
-    private UUID id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // Usado para mapeamento de SERIAL
+    @Column(name = "id", nullable = false, updatable = false)
+    private Integer id;
+
     @ManyToOne
-    @JoinColumn(name = "funcionarioId")
+    @JoinColumn(name = "funcionarioid")
     private Funcionario funcionario;
+
+    @Column(name = "data")
     private Date data;
+
+    @Column(name = "horaentrada")
     private LocalTime horaEntrada;
+
+    @Column(name = "horasaida")
     private LocalTime horaSaida;
+
+    @Column(name = "horastrabalhadas")
     private LocalTime horasTrabalhadas;
-    private String  observacao;
+
+    @Column(name = "observacao")
+    private String observacao;
+
 
 }

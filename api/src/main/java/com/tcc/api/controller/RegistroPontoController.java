@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("/api/registroPonto")
+@RequestMapping("/api/registro_ponto")
 public class RegistroPontoController {
 
     @Autowired
@@ -23,7 +23,7 @@ public class RegistroPontoController {
     private RegistroPontoService registroPontoService;
 
     @PostMapping("/funcionario/{funcionarioId}")
-    public ResponseEntity<RegistroPonto> addRegistroPontoToFuncionario(@PathVariable UUID funcionarioId, @RequestBody RegistroPontoRequestDTO data){
+    public ResponseEntity<RegistroPonto> addRegistroPontoToFuncionario(@PathVariable Integer funcionarioId, @RequestBody RegistroPontoRequestDTO data){
             RegistroPonto registroPonto = this.registroPontoService.addRegistroPontoToFuncionario(funcionarioId, data);
             return ResponseEntity.ok(registroPonto);
     }

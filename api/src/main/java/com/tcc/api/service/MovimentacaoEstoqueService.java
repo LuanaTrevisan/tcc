@@ -25,7 +25,7 @@ public class MovimentacaoEstoqueService {
     @Autowired
     private ProdutoRepository produtoRepository;
 
-    public MovimentacaoEstoque addMovimentacaoEstoqueToProduto(UUID produtoId, MovimentacaoEstoqueRequestDTO MovimentacaoEstoqueData){
+    public MovimentacaoEstoque addMovimentacaoEstoqueToProduto(Integer produtoId, MovimentacaoEstoqueRequestDTO MovimentacaoEstoqueData){
         Produto produto = produtoRepository.findById(produtoId)
                 .orElseThrow(() -> new IllegalArgumentException("Produto não encontrado"));
 

@@ -1,9 +1,6 @@
 package com.tcc.api.domain.funcionario;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -21,13 +18,20 @@ import java.util.UUID;
 public class Funcionario {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // Usado para mapeamento de SERIAL
+    @Column(name = "id", nullable = false, updatable = false)
+    private Integer id;
 
-    private UUID id;
+    @Column(name = "nome")
     private String nome;
+
+    @Column(name = "cpf")
     private String cpf;
+
+    @Column(name = "cargo")
     private String cargo;
+
+    @Column(name = "dataadmissao")
     private Date dataAdmissao;
-    private boolean status;
 
 }

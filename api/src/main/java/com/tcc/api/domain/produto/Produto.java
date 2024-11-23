@@ -1,9 +1,6 @@
 package com.tcc.api.domain.produto;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -20,11 +17,20 @@ import java.util.UUID;
 public class Produto {
 
     @Id
-    @GeneratedValue
-    private UUID id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // Usado para mapeamento de SERIAL
+    @Column(name = "id", nullable = false, updatable = false)
+    private Integer id;
+
+    @Column(name = "nome")
     private String nome;
+
+    @Column(name = "descricao")
     private String descricao;
+
+    @Column(name = "quantidade")
     private Integer quantidade;
+
+    @Column(name = "precounitario")
     private float precoUnitario;
 
 }

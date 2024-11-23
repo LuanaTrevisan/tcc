@@ -26,7 +26,6 @@ public class FuncionarioService {
         newFuncionario.setCpf(data.cpf());
         newFuncionario.setCargo(data.cargo());
         newFuncionario.setDataAdmissao(new Date(data.dataAdmissao()));
-        newFuncionario.setStatus(data.status());
 
         funcionarioRepository.save(newFuncionario);
 

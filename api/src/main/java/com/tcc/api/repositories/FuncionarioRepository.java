@@ -7,6 +7,6 @@ import org.springframework.stereotype.Repository;
 import java.util.UUID;
 
 @Repository
-public interface FuncionarioRepository extends JpaRepository<Funcionario, UUID> {
+public interface FuncionarioRepository extends JpaRepository<Funcionario, Integer> {
 
 }
