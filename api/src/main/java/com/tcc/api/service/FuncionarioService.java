@@ -25,16 +25,14 @@ public class FuncionarioService {
         newFuncionario.setNome(data.nome());
         newFuncionario.setCpf(data.cpf());
         newFuncionario.setCargo(data.cargo());
-        newFuncionario.setDataAdmissao(new Date(data.dataAdmissao()));
+        newFuncionario.setData_admissao(new Date(data.data_admissao()));
 
-        funcionarioRepository.save(newFuncionario);
-
-        return newFuncionario;
+        return funcionarioRepository.save(newFuncionario);
     }
     public List<FuncionarioResponseDTO> getFuncionario(int page, int size){
         Pageable pageable = PageRequest.of(page,size);
         Page<Funcionario> funcionarioPage = this.funcionarioRepository.findAll(pageable);
-        return funcionarioPage.map(funcionario -> new FuncionarioResponseDTO(funcionario.getId(), funcionario.getNome(), funcionario.getCpf(), funcionario.getCargo(), funcionario.getDataAdmissao()))
+        return funcionarioPage.map(funcionario -> new FuncionarioResponseDTO(funcionario.getId(), funcionario.getNome(), funcionario.getCpf(), funcionario.getCargo(), funcionario.getData_admissao()))
                 .stream().toList();
     }
 }

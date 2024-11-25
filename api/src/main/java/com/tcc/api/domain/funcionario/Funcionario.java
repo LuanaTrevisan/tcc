@@ -19,7 +19,7 @@ public class Funcionario {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) // Usado para mapeamento de SERIAL
-    @Column(name = "id", nullable = false, updatable = false)
+    @Column(name = "id")
     private Integer id;
 
     @Column(name = "nome")
@@ -31,7 +31,7 @@ public class Funcionario {
     @Column(name = "cargo")
     private String cargo;
 
-    @Column(name = "dataadmissao")
-    private Date dataAdmissao;
+    @Column(name = "data_admissao")
+    private Date data_admissao;
 
 }

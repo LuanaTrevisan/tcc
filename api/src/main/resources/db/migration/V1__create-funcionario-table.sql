@@ -2,8 +2,8 @@ CREATE EXTENSION IF NOT EXISTS "pgcrypto";
 
 CREATE TABLE funcionario(
     id SERIAL PRIMARY KEY,
-    nome VARCHAR(100) NOT NULL,
+    nome TEXT NOT NULL,
     cpf VARCHAR(11) UNIQUE NOT NULL,
-    cargo VARCHAR(50) NOT NULL,
-    dataAdmissao DATE NOT NULL
+    cargo TEXT NOT NULL,
+    data_admissao DATE NOT NULL
     );

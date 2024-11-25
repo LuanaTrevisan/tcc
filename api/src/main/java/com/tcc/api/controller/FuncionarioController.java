@@ -20,8 +20,9 @@ public class FuncionarioController {
 
     @Autowired
     private FuncionarioService funcionarioService;
+
     @PostMapping
-    public ResponseEntity<Funcionario> create (@RequestBody FuncionarioRequestDTO body){
+    public ResponseEntity<Funcionario> create(@RequestBody FuncionarioRequestDTO body){
         Funcionario newFuncionario = this.funcionarioService.createFuncionario(body);
         return ResponseEntity.ok(newFuncionario);
     }
