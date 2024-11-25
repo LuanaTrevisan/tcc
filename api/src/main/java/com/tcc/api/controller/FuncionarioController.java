@@ -32,4 +32,9 @@ public class FuncionarioController {
         List<FuncionarioResponseDTO> allFuncionario = this.funcionarioService.getFuncionario(page,size);
         return ResponseEntity.ok(allFuncionario);
     }
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> delete(@PathVariable Integer id) {
+        this.funcionarioService.deleteFuncionario(id);
+        return ResponseEntity.noContent().build();
+    }
 }

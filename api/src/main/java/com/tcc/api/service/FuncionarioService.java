@@ -35,4 +35,12 @@ public class FuncionarioService {
         return funcionarioPage.map(funcionario -> new FuncionarioResponseDTO(funcionario.getId(), funcionario.getNome(), funcionario.getCpf(), funcionario.getCargo(), funcionario.getData_admissao()))
                 .stream().toList();
     }
+    public void deleteFuncionario(Integer id) {
+        if (funcionarioRepository.existsById(id)) {
+            funcionarioRepository.deleteById(id);
+        } else {
+            throw new IllegalArgumentException("Funcionário com ID " + id + " não encontrado");
+        }
+    }
+
 }
