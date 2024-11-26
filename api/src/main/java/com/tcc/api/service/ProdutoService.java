@@ -24,16 +24,21 @@ public class ProdutoService {
         newProduto.setNome(data.nome());
         newProduto.setDescricao(data.descricao());
         newProduto.setQuantidade(data.quantidade());
-        newProduto.setPrecoUnitario(data.precoUnitario());
+        newProduto.setPreco_unitario(data.preco_unitario());
 
-        produtoRepository.save(newProduto);
-
-        return newProduto;
+        return produtoRepository.save(newProduto);
     }
     public List<ProdutoResponseDTO> getProduto(int page, int size){
         Pageable pageable = PageRequest.of(page,size);
         Page<Produto> produtoPage = this.produtoRepository.findAll(pageable);
-        return produtoPage.map(produto -> new ProdutoResponseDTO(produto.getId(), produto.getNome(), produto.getDescricao(), produto.getQuantidade(), produto.getPrecoUnitario()))
+        return produtoPage.map(produto -> new ProdutoResponseDTO(produto.getId(), produto.getNome(), produto.getDescricao(), produto.getQuantidade(), produto.getPreco_unitario()))
                 .stream().toList();
+    }
+    public void deleteProduto(Integer id) {
+        if (produtoRepository.existsById(id)) {
+            produtoRepository.deleteById(id);
+        } else {
+            throw new IllegalArgumentException("Produto com ID " + id + " não encontrado");
+        }
     }
 }

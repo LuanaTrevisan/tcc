@@ -1,9 +1,9 @@
 CREATE TABLE movimentacao_estoque (
     id SERIAL PRIMARY KEY,
-    produtoId INTEGER NOT NULL,
-    FOREIGN KEY (produtoId) REFERENCES produto(id) ON DELETE CASCADE,
-    tipoMovimentacao VARCHAR(20) NOT NULL,
+    produto_id INTEGER NOT NULL,
+    FOREIGN KEY (produto_id) REFERENCES produto(id) ON DELETE CASCADE,
+    tipo_movimentacao VARCHAR(20) NOT NULL,
     quantidade INTEGER NOT NULL,
-    dataMovimentacao DATE NOT NULL,
+    data_movimentacao DATE NOT NULL,
     observacao TEXT NOT NULL
 );

@@ -30,7 +30,7 @@ public class Produto {
     @Column(name = "quantidade")
     private Integer quantidade;
 
-    @Column(name = "precounitario")
-    private float precoUnitario;
+    @Column(name = "preco_unitario")
+    private float preco_unitario;
 
 }

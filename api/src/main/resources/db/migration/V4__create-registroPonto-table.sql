@@ -3,8 +3,8 @@ CREATE TABLE registro_ponto (
     funcionarioId INTEGER NOT NULL,
     FOREIGN KEY (funcionarioId) REFERENCES funcionario(id) ON DELETE CASCADE,
     data DATE NOT NULL,
-    horaEntrada TIME NOT NULL,
-    horaSaida TIME NOT NULL,
-    horasTrabalhadas TIME NOT NULL,
+    hora_entrada TIME NOT NULL,
+    hora_saida TIME NOT NULL,
+    horas_trabalhadas TIME NOT NULL,
     observacao TEXT NOT NULL
 );

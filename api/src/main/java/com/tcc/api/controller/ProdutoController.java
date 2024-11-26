@@ -32,5 +32,9 @@ public class ProdutoController {
         List<ProdutoResponseDTO> allProduto = this.produtoService.getProduto(page,size);
         return ResponseEntity.ok(allProduto);
     }
-
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> delete(@PathVariable Integer id) {
+        this.produtoService.deleteProduto(id);
+        return ResponseEntity.noContent().build();
+    }
 }
