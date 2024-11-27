@@ -31,11 +31,20 @@ public class SecurityConfiguration {
                 .authorizeHttpRequests( authorize -> authorize
                         .requestMatchers(HttpMethod.POST, "/auth/login").permitAll()
                         .requestMatchers(HttpMethod.POST, "/auth/register").permitAll()
-                        .requestMatchers(HttpMethod.POST, "/funcionario").permitAll()
-                        .requestMatchers(HttpMethod.POST, "/produto").permitAll()
+                        .requestMatchers(HttpMethod.POST, "/api/funcionario").permitAll()
+                        .requestMatchers(HttpMethod.POST, "/api/produto").permitAll()
+                        .requestMatchers(HttpMethod.POST, "/api/user").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/api/funcionario").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/auth/login").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/auth/register").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/api/produto").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/api/user").permitAll()
+                        .requestMatchers(HttpMethod.DELETE, "/api/funcionario/{id}").permitAll()
+                        .requestMatchers(HttpMethod.DELETE, "/api/produto/{id}").permitAll()
                         .anyRequest().authenticated()
                 )
                 .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class);
+        return http.build();
     }
 
     @Bean
